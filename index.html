@@ -30,53 +30,6 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-
-    <!-- Theme overrides: เปลี่ยนจากโทนเขียวเป็นโทนฟ้า / น้ำเงิน / ขาว -->
-    <style>
-      :root{
-        --primary: #0b63ff;       /* หลัก: ฟ้าเข้ม/สด */
-        --primary-dark: #042a66;  /* กรมท่าสำหรับ hover */
-        --accent: #0dcaf0;        /* ไฮไลต์/badge สีฟ้าซีอาน */
-        --dark-navy: #071835;     /* แทน bg-dark (nav/footer) */
-        --white: #ffffff;
-      }
-
-      /* core replacements */
-      .text-primary { color: var(--primary) !important; }
-      .bg-primary { background-color: var(--primary) !important; color: var(--white) !important; }
-      .border-primary { border-color: var(--primary) !important; }
-
-      /* buttons */
-      .btn-primary {
-        background-color: var(--primary) !important;
-        border-color: var(--primary) !important;
-        color: var(--white) !important;
-      }
-      .btn-primary:hover, .btn-primary:focus {
-        background-color: var(--primary-dark) !important;
-        border-color: var(--primary-dark) !important;
-      }
-
-      /* replace dark backgrounds with navy */
-      .bg-dark { background-color: var(--dark-navy) !important; color: var(--white) !important; }
-      .footer { background-color: var(--dark-navy) !important; }
-
-      /* badge/offer accents (เดิม text-danger) -> cyan/ฟ้าอ่อน */
-      .text-danger { color: var(--accent) !important; }
-
-      /* outline/light buttons on dark -> ensure contrast */
-      .btn-outline-light {
-        color: var(--white) !important;
-        border-color: rgba(255,255,255,0.15) !important;
-      }
-      .btn-outline-light:hover { background-color: rgba(255,255,255,0.04) !important; }
-
-      /* back-to-top */
-      .back-to-top { background-color: var(--primary) !important; }
-
-      /* small visual tweaks for contrast */
-      .testimonial-item, .team-item { border-color: rgba(7,24,53,0.08); }
-    </style>
 </head>
 
 <body>
