@@ -4,6 +4,130 @@
     --secondary: #FFEBAF;
     --light: #F5F5F5;
     --dark: #14141F;
+    --text-on-vanilla: #2C5F6F;
+    --text-on-moonstone: #FFFFFF;
+    --cream-bg: #F8F4E6;
+    --cream-bg-light: #FAF7F0;
+    --cream-bg-dark: #F0EAD6;
+}
+
+/* Global Typography */
+body {
+    font-family: 'Kalam', 'Caveat', cursive, sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #333333;
+    background-color: var(--cream-bg);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main container background */
+.container-xxl,
+.container {
+    background-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Dancing Script', serif;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--dark);
+    letter-spacing: 0.5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: rotate(-0.5deg);
+    transition: transform 0.3s ease;
+}
+
+h1:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+h2 {
+    font-family: 'Playfair Display', 'Dancing Script', serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 2.8rem;
+    line-height: 1.3;
+}
+
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-size: 2rem;
+}
+
+h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* Bootstrap Color Overrides */
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.text-secondary {
+    color: var(--secondary) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #FFFFFF;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #3d8a9d;
+    border-color: #3d8a9d;
+    color: #FFFFFF;
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--text-on-vanilla);
+    font-weight: 600;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background-color: #ffe89a;
+    border-color: #ffe89a;
+    color: var(--text-on-vanilla);
+}
+
+.border-primary {
+    border-color: var(--primary) !important;
+}
+
+.border-secondary {
+    border-color: var(--secondary) !important;
 }
 
 .fw-medium {
@@ -29,6 +153,7 @@
     visibility: hidden;
     transition: opacity .5s ease-out, visibility 0s linear .5s;
     z-index: 99999;
+    background-color: var(--cream-bg) !important;
 }
 
 #spinner.show {
@@ -40,14 +165,34 @@
 
 /*** Button ***/
 .btn {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Playfair Display', 'Dancing Script', serif;
     font-weight: 600;
     transition: .5s;
+    letter-spacing: 0.8px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    text-transform: none;
 }
 
-.btn.btn-primary,
-.btn.btn-secondary {
+.btn.btn-primary {
     color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(76, 157, 176, .3);
+}
+
+.btn.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(76, 157, 176, .4);
+    transform: translateY(-2px);
+}
+
+.btn.btn-secondary {
+    color: var(--primary);
+    box-shadow: 0 4px 15px rgba(255, 235, 175, .3);
+}
+
+.btn.btn-secondary:hover {
+    box-shadow: 0 6px 20px rgba(255, 235, 175, .4);
+    transform: translateY(-2px);
 }
 
 .btn-square {
@@ -79,20 +224,23 @@
 
 /*** Navbar ***/
 .navbar-light .navbar-nav .nav-link {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Playfair Display', 'Dancing Script', serif;
     position: relative;
     margin-right: 25px;
     padding: 35px 0;
     color: #FFFFFF !important;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
+    letter-spacing: 0.5px;
     outline: none;
     transition: .5s;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .sticky-top.navbar-light .navbar-nav .nav-link {
     padding: 20px 0;
     color: var(--dark) !important;
+    text-shadow: none;
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
@@ -112,7 +260,7 @@
 @media (max-width: 991.98px) {
     .sticky-top.navbar-light {
         position: relative;
-        background: #FFFFFF;
+        background: var(--cream-bg-light);
     }
 
     .navbar-light .navbar-collapse {
@@ -142,21 +290,24 @@
         z-index: 999;
     }
     
-    .sticky-top.navbar-light {
-        position: fixed;
-        background: #FFFFFF;
-    }
+.sticky-top.navbar-light {
+    position: fixed;
+    background: var(--cream-bg-light);
+    box-shadow: 0 2px 10px rgba(76, 157, 176, .15);
+    backdrop-filter: blur(10px);
+}
 
-    .navbar-light .navbar-nav .nav-link::before {
-        position: absolute;
-        content: "";
-        width: 0;
-        height: 2px;
-        bottom: -1px;
-        left: 50%;
-        background: var(--primary);
-        transition: .5s;
-    }
+.navbar-light .navbar-nav .nav-link::before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 3px;
+    bottom: -1px;
+    left: 50%;
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+    transition: .5s;
+    border-radius: 2px;
+}
 
     .navbar-light .navbar-nav .nav-link:hover::before,
     .navbar-light .navbar-nav .nav-link.active::before {
@@ -172,10 +323,23 @@
 
 /*** Hero Header ***/
 .hero-header {
-    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)), url(../img/bg-hero2.jpg);
+    background: linear-gradient(rgba(76, 157, 176, .85), rgba(76, 157, 176, .75)), url(../img/bg-hero2.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bg-primary.hero-header {
+    background: linear-gradient(rgba(76, 157, 176, .9), rgba(76, 157, 176, .8)), url(../img/bg-hero2.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-primary.hero-header .text-white,
+.hero-header .text-white {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    color: var(--text-on-moonstone) !important;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -187,7 +351,18 @@
 .section-title {
     position: relative;
     display: inline-block;
-    text-transform: uppercase;
+    text-transform: none;
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    font-size: 28px;
+    transform: rotate(-0.3deg);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.section-title:hover {
+    transform: rotate(0deg) scale(1.05);
 }
 
 .section-title::before {
@@ -208,7 +383,7 @@
     height: 2px;
     bottom: 5px;
     left: -60px;
-    background: var(--primary);
+    background: var(--secondary);
     z-index: -1;
 }
 
@@ -227,10 +402,14 @@
 .service-item {
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
     transition: .5s;
+    background: var(--cream-bg-light);
+    border: 1px solid rgba(76, 157, 176, 0.1);
 }
 
 .service-item:hover {
     background: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(76, 157, 176, .3);
 }
 
 .service-item * {
@@ -238,7 +417,49 @@
 }
 
 .service-item:hover * {
-    color: var(--light) !important;
+    color: var(--text-on-moonstone) !important;
+}
+
+.service-item .fa {
+    color: var(--primary);
+}
+
+.service-item:hover .fa {
+    color: var(--text-on-moonstone) !important;
+}
+
+.service-item h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1.5rem;
+    letter-spacing: 0.3px;
+}
+
+.service-item p {
+    font-family: 'Kalam', 'Caveat', cursive;
+    color: #555;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+/* Improve text contrast on cream background */
+.service-item,
+.package-item,
+.team-item {
+    color: #444;
+}
+
+.service-item h3,
+.service-item h4,
+.service-item h5,
+.package-item h3,
+.package-item h4,
+.package-item h5,
+.team-item h3,
+.team-item h4,
+.team-item h5 {
+    color: var(--dark);
 }
 
 
@@ -255,6 +476,14 @@
 /*** Package ***/
 .package-item {
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+    background: var(--cream-bg-light);
+    border: 1px solid rgba(76, 157, 176, 0.1);
+}
+
+.package-item:hover {
+    box-shadow: 0 10px 30px rgba(76, 157, 176, .2);
+    transform: translateY(-5px);
 }
 
 .package-item img {
@@ -265,19 +494,71 @@
     transform: scale(1.1);
 }
 
+.package-item .btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    font-family: 'Playfair Display', 'Dancing Script', serif;
+}
+
+.package-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 1.8rem;
+    letter-spacing: 0.3px;
+}
+
+.package-item p {
+    font-family: 'Kalam', 'Caveat', cursive;
+    color: #555;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+.package-item small {
+    color: #666;
+}
+
+.package-item .btn-primary:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--text-on-vanilla);
+    font-weight: 600;
+}
+
 
 /*** Booking ***/
 .booking {
-    background: linear-gradient(rgba(15, 23, 43, .7), rgba(15, 23, 43, .7)), url(../img/booking.jpg);
+    background: linear-gradient(rgba(76, 157, 176, .85), rgba(76, 157, 176, .75)), url(../img/booking.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.booking .btn-outline-light:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--text-on-vanilla);
+    font-weight: 600;
+}
+
+.booking .text-white {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    color: var(--text-on-moonstone) !important;
 }
 
 
 /*** Team ***/
 .team-item {
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+    background: var(--cream-bg-light);
+    border: 1px solid rgba(76, 157, 176, 0.1);
+}
+
+.team-item:hover {
+    box-shadow: 0 10px 30px rgba(76, 157, 176, .2);
+    transform: translateY(-5px);
 }
 
 .team-item img {
@@ -289,15 +570,17 @@
 }
 
 .team-item .btn {
-    background: #FFFFFF;
-    color: var(--primary);
+    background: var(--secondary);
+    color: var(--text-on-vanilla);
     border-radius: 20px;
-    border-bottom: 1px solid var(--primary);
+    border: 1px solid var(--primary);
+    font-weight: 600;
 }
 
 .team-item .btn:hover {
     background: var(--primary);
-    color: #FFFFFF;
+    color: var(--text-on-moonstone);
+    border-color: var(--primary);
 }
 
 
@@ -343,9 +626,15 @@
     transition: .5s;
 }
 
+.testimonial-item {
+    background: var(--cream-bg-light) !important;
+    border: 1px solid rgba(76, 157, 176, 0.15) !important;
+}
+
 .testimonial-carousel .owl-item.center .testimonial-item {
     background: var(--primary) !important;
     border-color: var(--primary) !important;
+    box-shadow: 0 10px 30px rgba(76, 157, 176, .3);
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item * {
@@ -392,7 +681,9 @@
 }
 
 .footer .btn.btn-social:hover {
-    color: var(--primary);
+    color: var(--text-on-vanilla);
+    background: var(--secondary);
+    border-color: var(--secondary);
 }
 
 .footer .btn.btn-link {
@@ -430,6 +721,10 @@
     color: var(--light);
 }
 
+.footer .copyright a:hover {
+    color: var(--secondary);
+}
+
 .footer .footer-menu a {
     margin-right: 15px;
     padding-right: 15px;
@@ -440,4 +735,497 @@
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+
+/*** Process Section Enhancements ***/
+.position-relative.border.border-primary {
+    transition: .5s;
+}
+
+.position-relative.border.border-primary:hover {
+    border-color: var(--secondary) !important;
+    box-shadow: 0 10px 30px rgba(76, 157, 176, .2);
+    transform: translateY(-5px);
+}
+
+.position-relative.border.border-primary .bg-primary.rounded-circle {
+    transition: .5s;
+}
+
+.position-relative.border.border-primary:hover .bg-primary.rounded-circle {
+    background-color: var(--secondary) !important;
+    transform: scale(1.1);
+}
+
+.position-relative.border.border-primary:hover .bg-primary.rounded-circle i {
+    color: var(--text-on-vanilla) !important;
+}
+
+.position-relative.border.border-primary h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1.4rem;
+    letter-spacing: 0.3px;
+}
+
+.position-relative.border.border-primary p {
+    color: #555;
+    font-family: 'Kalam', 'Caveat', cursive;
+    font-size: 16px;
+}
+
+.position-relative.border.border-primary {
+    background-color: var(--cream-bg-light);
+}
+
+
+/*** Additional Accent Styles ***/
+.bg-accent-vanilla {
+    background-color: var(--secondary) !important;
+    color: var(--primary) !important;
+}
+
+.bg-accent-moonstone {
+    background-color: var(--primary) !important;
+    color: var(--secondary) !important;
+}
+
+.text-accent-vanilla {
+    color: var(--secondary) !important;
+}
+
+.text-accent-moonstone {
+    color: var(--primary) !important;
+}
+
+/* Topbar enhancements */
+.bg-dark {
+    background-color: var(--dark) !important;
+}
+
+/* Form enhancements */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(76, 157, 176, .25);
+}
+
+.form-control.border-primary:focus {
+    border-color: var(--primary);
+}
+
+.form-control,
+.form-select {
+    font-family: 'Kalam', 'Caveat', cursive;
+    background-color: #FFFFFF;
+    border-color: rgba(76, 157, 176, 0.2);
+    font-size: 16px;
+}
+
+.form-control::placeholder,
+.form-select::placeholder {
+    color: #999;
+    opacity: 0.7;
+}
+
+/* Form inputs on cream background should have white background for contrast */
+.form-control:not(.bg-transparent),
+.form-select:not(.bg-transparent) {
+    background-color: #FFFFFF !important;
+    color: #333 !important;
+}
+
+.booking .form-control,
+.booking .form-select {
+    color: var(--text-on-moonstone) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.booking .form-control::placeholder,
+.booking .form-select::placeholder {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.booking .form-control:focus,
+.booking .form-select:focus {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-color: var(--secondary) !important;
+    color: var(--text-on-moonstone) !important;
+}
+
+.booking label {
+    color: var(--text-on-moonstone) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Destination badges */
+.destination .bg-white.text-primary {
+    background-color: var(--secondary) !important;
+    color: var(--text-on-vanilla) !important;
+    font-weight: 600;
+    border: 2px solid var(--primary);
+    text-shadow: none;
+    padding: 8px 16px !important;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+}
+
+.destination .bg-white.text-danger {
+    background-color: var(--primary) !important;
+    color: var(--text-on-moonstone) !important;
+    font-weight: 600;
+    border: 2px solid var(--secondary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    padding: 8px 16px !important;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+}
+
+/* Override bg-white class to use cream background */
+.bg-white {
+    background-color: var(--cream-bg-light) !important;
+}
+
+/* Section backgrounds */
+.section-title.bg-white {
+    background-color: var(--cream-bg-light) !important;
+}
+
+/* Star ratings */
+.fa-star.text-primary {
+    color: var(--primary) !important;
+}
+
+/* Back to top button */
+.back-to-top {
+    background-color: var(--primary);
+    color: var(--text-on-moonstone);
+    box-shadow: 0 4px 15px rgba(76, 157, 176, .4);
+}
+
+.back-to-top:hover {
+    background-color: var(--secondary);
+    color: var(--text-on-vanilla);
+    box-shadow: 0 6px 20px rgba(255, 235, 175, .4);
+}
+
+/* Additional Typography Improvements */
+.text-primary {
+    color: var(--primary) !important;
+    font-weight: 600;
+}
+
+.text-secondary {
+    color: var(--text-on-vanilla) !important;
+}
+
+/* Improve readability on colored backgrounds */
+.bg-primary *,
+.bg-primary p,
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary h4,
+.bg-primary h5,
+.bg-primary h6 {
+    color: var(--text-on-moonstone) !important;
+}
+
+.bg-secondary *,
+.bg-secondary p,
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary h3,
+.bg-secondary h4,
+.bg-secondary h5,
+.bg-secondary h6 {
+    color: var(--text-on-vanilla) !important;
+}
+
+/* Testimonial improvements */
+.testimonial-item {
+    font-family: 'Kalam', 'Caveat', cursive;
+}
+
+.testimonial-item h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 0.3px;
+}
+
+.testimonial-item p {
+    line-height: 1.9;
+    color: #555;
+    font-size: 16px;
+}
+
+.testimonial-item {
+    color: #444;
+}
+
+.testimonial-item h5 {
+    color: var(--dark);
+}
+
+.testimonial-carousel .owl-item.center .testimonial-item p {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Footer text improvements */
+.footer {
+    font-family: 'Kalam', 'Caveat', cursive;
+}
+
+.footer h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: var(--text-on-moonstone);
+    font-size: 1.4rem;
+    letter-spacing: 0.3px;
+}
+
+.footer .btn.btn-link {
+    font-family: 'Kalam', 'Caveat', cursive;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--secondary);
+}
+
+/* Topbar improvements */
+.bg-dark {
+    font-family: 'Kalam', 'Caveat', cursive;
+}
+
+.bg-dark small {
+    font-family: 'Kalam', cursive;
+    font-size: 14px;
+}
+
+.bg-dark small {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+/* Section heading improvements */
+h1, h2 {
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* About section improvements */
+.about-section p,
+p {
+    font-family: 'Kalam', 'Caveat', cursive;
+    line-height: 1.9;
+    color: #555;
+    font-size: 17px;
+}
+
+/* Improve readability with artistic fonts */
+p, li, span, div, small {
+    font-family: 'Kalam', 'Caveat', cursive;
+}
+
+small {
+    font-family: 'Kalam', cursive;
+    font-size: 14px;
+}
+
+/* Improve overall text readability on cream background */
+body,
+.container-xxl,
+.container {
+    color: #444;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark);
+}
+
+.about-section h1 {
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+/* Package price styling */
+.package-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 2.2rem;
+    letter-spacing: 0.3px;
+}
+
+/* Additional cream background overrides */
+.card,
+.card-body {
+    background-color: var(--cream-bg-light) !important;
+    border-color: rgba(76, 157, 176, 0.15) !important;
+}
+
+/* Table backgrounds */
+.table {
+    background-color: var(--cream-bg-light);
+}
+
+.table thead {
+    background-color: var(--cream-bg-dark);
+}
+
+/* Dropdown menus */
+.dropdown-menu {
+    background-color: var(--cream-bg-light) !important;
+    border-color: rgba(76, 157, 176, 0.2) !important;
+}
+
+.dropdown-item {
+    color: #444 !important;
+}
+
+.dropdown-item:hover {
+    background-color: var(--secondary) !important;
+    color: var(--text-on-vanilla) !important;
+}
+
+/* Modal backgrounds */
+.modal-content {
+    background-color: var(--cream-bg-light) !important;
+}
+
+.modal-header {
+    background-color: var(--cream-bg-dark);
+    border-bottom-color: rgba(76, 157, 176, 0.2);
+}
+
+.modal-footer {
+    background-color: var(--cream-bg-dark);
+    border-top-color: rgba(76, 157, 176, 0.2);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: transparent;
+}
+
+.breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.breadcrumb-item.active {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Improve section spacing with cream background */
+.container-xxl.py-5 {
+    background-color: transparent;
+}
+
+/* Navbar brand text color adjustment */
+.navbar-brand h1.text-primary {
+    color: var(--primary) !important;
+}
+
+.sticky-top.navbar-light .navbar-brand h1.text-primary {
+    color: var(--primary) !important;
+}
+
+/* Smooth transitions for cream background */
+* {
+    transition: background-color 0.3s ease;
+}
+
+/* Improve contrast for links on cream background */
+a {
+    color: var(--primary);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #3d8a9d;
+}
+
+/* Text color adjustments for better readability */
+.text-muted {
+    color: #777 !important;
+}
+
+.text-dark {
+    color: var(--dark) !important;
+}
+
+/* Border adjustments for cream background */
+.border {
+    border-color: rgba(76, 157, 176, 0.15) !important;
+}
+
+.border-top {
+    border-top-color: rgba(76, 157, 176, 0.15) !important;
+}
+
+.border-bottom {
+    border-bottom-color: rgba(76, 157, 176, 0.15) !important;
+}
+
+/* Input group adjustments */
+.input-group-text {
+    background-color: var(--cream-bg-dark);
+    border-color: rgba(76, 157, 176, 0.2);
+    color: #444;
+}
+
+/* List group adjustments */
+.list-group-item {
+    background-color: var(--cream-bg-light);
+    border-color: rgba(76, 157, 176, 0.15);
+    color: #444;
+}
+
+.list-group-item.active {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--text-on-moonstone);
+}
+
+/* Badge adjustments */
+.badge {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.badge.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.badge.bg-secondary {
+    background-color: var(--secondary) !important;
+    color: var(--text-on-vanilla) !important;
+}
+
+/* Alert adjustments */
+.alert {
+    border-color: rgba(76, 157, 176, 0.2);
+}
+
+.alert-primary {
+    background-color: rgba(76, 157, 176, 0.1);
+    border-color: var(--primary);
+    color: var(--text-on-vanilla);
+}
+
+.alert-secondary {
+    background-color: rgba(255, 235, 175, 0.3);
+    border-color: var(--secondary);
+    color: var(--text-on-vanilla);
 }
