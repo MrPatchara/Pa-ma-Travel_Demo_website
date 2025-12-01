@@ -1303,40 +1303,40 @@ a:hover {
     }
 }
 
-/* Replace previous hero-logo-bg / hero-logo-inline rules with responsive circle using clamp() */
+/* Replace previous hero logo sizing with smaller values */
 .hero-logo-bg {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1rem auto;
-    /* responsive circle: min 80px, ideal 22vw, max 320px */
-    width: clamp(80px, 22vw, 320px);
+    margin: 0 auto 0.75rem auto;
+    /* smaller responsive circle: min 56px, ideal 14vw, max 200px */
+    width: clamp(56px, 14vw, 200px);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
     background: rgba(255,255,255,0.98);
-    box-shadow: 0 6px 12px rgba(44,95,111,0.10); /* softer */
-    border: 1px solid rgba(76,157,176,0.06);     /* lighter border */
+    box-shadow: 0 5px 10px rgba(44,95,111,0.08); /* softer & smaller */
+    border: 1px solid rgba(76,157,176,0.05);     /* lighter */
     box-sizing: border-box;
     z-index: 2;
 }
 
-/* make logo fill more of the circle (snug) */
+/* logo fills more of the now-smaller circle */
 .hero-logo-inline {
-    width: 96%;
-    height: 96%;
+    width: 86%;
+    height: 86%;
     object-fit: contain;
     display: block;
 }
 
-/* tablet adjustments */
+/* tablet adjustments (smaller breakpoint sizes) */
 @media (max-width: 991.98px) {
-    .hero-logo-bg { width: clamp(64px, 28vw, 240px); }
-    .hero-logo-inline { width: 92%; height: 92%; }
+    .hero-logo-bg { width: clamp(48px, 18vw, 160px); }
+    .hero-logo-inline { width: 84%; height: 84%; }
 }
 
 /* mobile adjustments */
 @media (max-width: 575.98px) {
-    .hero-logo-bg { width: clamp(56px, 40vw, 180px); }
-    .hero-logo-inline { width: 90%; height: 90%; }
+    .hero-logo-bg { width: clamp(44px, 30vw, 140px); }
+    .hero-logo-inline { width: 82%; height: 82%; }
 }
