@@ -102,8 +102,11 @@
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
                         <!-- logo placed inline with the header text; size controlled by CSS % -->
-                        <img src="img/logo.png" alt="Logo" class="hero-logo-inline mb-3"
-                             onerror="this.style.display='none'; console.warn('Logo not found: img/logo.png');">
+                        <!-- logo wrapped so we can add a distinct background/padding -->
+                        <span class="hero-logo-bg mb-3">
+                            <img src="img/logo.png" alt="Logo" class="hero-logo-inline"
+                                 onerror="this.style.display='none'; console.warn('Logo not found: img/logo.png');">
+                        </span>
                         <p class="fs-4 text-white mb-4 animated slideInDown">Explore the World with us</p>
                          <div class="position-relative w-75 mx-auto animated slideInDown">
                              <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Thailand">
