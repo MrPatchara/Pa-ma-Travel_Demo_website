@@ -1258,3 +1258,17 @@ a:hover {
     border-color: var(--secondary);
     color: var(--text-on-vanilla);
 }
+
+/* Ensure hero logo image sits above the hero overlay and is centered */
+.hero-logo {
+    position: absolute; /* positioned relative to .hero-header (which is position:relative) */
+    z-index: 2; /* above .hero-header::before (z-index:0) and header text (z-index:1) */
+    max-width: 220px; /* adjust size as needed */
+    width: 40%;
+    height: auto;
+    left: 50%; /* fallback if utility classes missing */
+    top: 50%;
+    transform: translate(-50%, -50%); /* fallback if translate-middle class missing */
+    display: block;
+    pointer-events: none; /* allow clicking through if necessary */
+}
