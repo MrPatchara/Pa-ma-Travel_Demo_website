@@ -9,6 +9,7 @@
     --cream-bg: #F8F4E6;
     --cream-bg-light: #FAF7F0;
     --cream-bg-dark: #F0EAD6;
+    --hero-logo-h: 160px; /* default logo height, tweaked via media queries */
 }
 
 /* Global Typography */
@@ -1259,16 +1260,78 @@ a:hover {
     color: var(--text-on-vanilla);
 }
 
-/* Ensure hero logo image sits above the hero overlay and is centered */
+/* Ensure hero logo image sits above the hero overlay and is centered but not overlapping text */
 .hero-logo {
-    position: absolute; /* positioned relative to .hero-header (which is position:relative) */
-    z-index: 2; /* above .hero-header::before (z-index:0) and header text (z-index:1) */
-    max-width: 220px; /* adjust size as needed */
-    width: 40%;
-    height: auto;
-    left: 50%; /* fallback if utility classes missing */
-    top: 50%;
-    transform: translate(-50%, -50%); /* fallback if translate-middle class missing */
+    position: absolute;
+    z-index: 2;
+    max-width: 220px;
+    width: auto;
+    height: var(--hero-logo-h);
+    left: 50%; /* horizontal center */
+    top: 50%;  /* vertically around center */
+    transform: translate(-50%, -60%); /* slightly above exact center to leave room for text */
     display: block;
-    pointer-events: none; /* allow clicking through if necessary */
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+/* reduce forced large gap; compute a small padding so text sits below the (slightly above-center) logo */
+.hero-header .col-lg-10 {
+    padding-top: calc(var(--hero-logo-h) * 0.6 + 12px);
+}
+
+/* Responsive adjustments: reduce logo size & adjust spacing on smaller screens */
+@media (max-width: 991.98px) {
+    :root { --hero-logo-h: 140px; }
+    .hero-logo {
+        height: var(--hero-logo-h);
+        transform: translate(-50%, -65%);
+    }
+    .hero-header .col-lg-10 {
+        padding-top: calc(var(--hero-logo-h) * 0.6 + 10px);
+    }
+}
+
+@media (max-width: 575.98px) {
+    :root { --hero-logo-h: 110px; }
+    .hero-logo {
+        height: var(--hero-logo-h);
+        transform: translate(-50%, -70%);
+    }
+    .hero-header .col-lg-10 {
+        padding-top: calc(var(--hero-logo-h) * 0.6 + 8px);
+    }
+}
+
+/* Add inline hero logo (keeps it in flow with the header text; size by %) */
+.hero-logo-inline {
+    display: block;
+    margin: 0 auto 1rem auto;
+    width: 18%;        /* primary size in percent (responsive) */
+    max-width: 240px;  /* optional cap so it doesn't grow too large on wide screens */
+    min-width: 90px;   /* optional floor so logo remains visible on small screens */
+    height: auto;
+    position: relative;
+    z-index: 2;        /* above the overlay pseudo-element */
+}
+
+/* Slightly larger logo on wide screens */
+@media (min-width: 1400px) {
+    .hero-logo-inline { width: 14%; max-width: 300px; }
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+    .hero-logo-inline { width: 22%; max-width: 200px; min-width: 80px; margin-bottom: .75rem; }
+}
+
+/* Mobile */
+@media (max-width: 575.98px) {
+    .hero-logo-inline { width: 36%; max-width: 150px; min-width: 70px; margin-bottom: .5rem; }
+}
+
+/* Remove large forced padding on the hero text so it flows naturally with inline logo */
+.hero-header .col-lg-10 {
+    /* previously had large padding-top for absolute logo; reset to sensible default */
+    padding-top: 1rem;
 }
